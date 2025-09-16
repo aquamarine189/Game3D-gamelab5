@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://p1emkl8j07w3"]
+
+[ext_resource type="Script" uid="uid://ckrja7yj54bej" path="res://Script/mob.gd" id="1_j0k6o"]
+[ext_resource type="PackedScene" uid="uid://b8x7cl5mcmcnk" path="res://art/Kitchen Knife.glb" id="1_s8skk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nokgg"]
+radius = 0.0624134
+height = 0.412689
+
+[node name="Mob" type="CharacterBody3D" groups=["mob"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436218, 0, 0)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_j0k6o")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" parent="Pivot" instance=ExtResource("1_s8skk")]
+transform = Transform3D(1.97424, 0, -0.319935, 0, 2, 0, 0.319935, 0, 1.97424, 0, -0.271553, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.99088, -0.01278, 0.190338, 0.190758, -0.152561, 1.98503, 0.00183475, 1.99413, 0.153084, -0.820664, 1.80067, 1.13867)
+shape = SubResource("CapsuleShape3D_nokgg")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.935202, 2.13093, 0.726458)
+aabb = AABB(0.0640717, -0.373771, -0.747515, 0.174591, 0.183089, 1.49503)
